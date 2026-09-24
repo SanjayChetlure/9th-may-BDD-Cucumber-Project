@@ -68,6 +68,12 @@ public class LoginSteps
         System.out.println("Logo text visible with text-"+expLogoText);
     }
 
+    @When("user enter pin as {int}")
+    public void user_enter_pin_as(int pin)
+    {
+        System.out.println("Entered Pin -"+pin);
+    }
+
 
 
 
