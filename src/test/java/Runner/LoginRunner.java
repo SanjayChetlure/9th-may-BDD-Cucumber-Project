@@ -3,7 +3,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-        features="src\\test\\java\\Features\\Ex4_UseOfBackgroudKeyword.feature",   //path of feature file
+        features="src\\test\\java\\Features\\Ex5_2_ScenarioOutlineAndScenarioInSameFeatureFile.feature",   //path of feature file
         glue="Steps",  //package name of step definition class
         publish = true
 )
