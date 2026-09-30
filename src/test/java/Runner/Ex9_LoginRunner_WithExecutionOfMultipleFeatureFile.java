@@ -11,7 +11,7 @@ import io.cucumber.testng.CucumberOptions;
         tags = ""
 
 )
-public class LoginRunner_WithExecutionOfMultipleFeatureFile extends AbstractTestNGCucumberTests
+public class Ex9_LoginRunner_WithExecutionOfMultipleFeatureFile extends AbstractTestNGCucumberTests
 {
 
 }
