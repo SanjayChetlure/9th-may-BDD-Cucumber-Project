@@ -1,4 +1,4 @@
-package TestNg_SampleCode;
+package BDD_Practice.TestNg_SampleCode;
 import org.testng.annotations.Test;
 public class Demo1
 {

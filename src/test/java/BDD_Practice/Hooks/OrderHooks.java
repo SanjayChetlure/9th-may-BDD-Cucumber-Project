@@ -1,4 +1,4 @@
-package Hooks;
+package BDD_Practice.Hooks;
 
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
