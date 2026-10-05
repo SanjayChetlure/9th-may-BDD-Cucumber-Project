@@ -11,9 +11,10 @@ public class SwagLabHooks
 {
 
     @Before
-    public void openBrowser() throws IOException {
-        String browser=UtilityClass.getPFData("browserName");
-        DriverFactory.initializeBrowser(browser);
+    public void openBrowser() throws IOException
+    {
+        String browserValue=UtilityClass.getPFData("browserName");
+        DriverFactory.initializeBrowser(browserValue);
     }
 
     @After
