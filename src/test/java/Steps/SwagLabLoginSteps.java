@@ -27,15 +27,30 @@ public class SwagLabLoginSteps
     @When("user enter UN as {string}")
     public void user_enter_un_as(String UnKey) throws IOException
     {
-        String UnValue=UtilityClass.getPFData(UnKey);
-        login.enterUN(UnValue);
+        if(UnKey.startsWith("#"))
+        {
+            String UnValue=UtilityClass.getPFData(UnKey.substring(1));  //  #UN  ->UN
+            login.enterUN(UnValue);
+        }
+        else
+        {
+            login.enterUN(UnKey);
+        }
     }
 
     @When("user enter PWD as {string}")
     public void user_enter_pwd_as(String pwdKey) throws IOException
     {
-        String pwdValue=UtilityClass.getPFData(pwdKey);
-        login.enterPWD(pwdValue);
+        if (pwdKey.startsWith("#"))
+        {
+            String pwdValue=UtilityClass.getPFData(pwdKey.substring(1));   //#pwd -> pwd
+            login.enterPWD(pwdValue);
+        }
+        else
+        {
+            login.enterPWD(pwdKey);
+        }
+
     }
 
     @When("user click on login button")
@@ -50,5 +65,14 @@ public class SwagLabLoginSteps
         String actLogoText=home.getLogoText();
         Assert.assertEquals(actLogoText, expLogoText,"Act & exp logo text mismatch");
     }
+
+
+    @Then("verify login failed error message with message {string}")
+    public void verify_login_failed_error_message_with_message(String expLoginFailedErrorMsg)
+    {
+       String actLoginFailedErrorMsg=login.getErrorMsg();
+       Assert.assertEquals(actLoginFailedErrorMsg,expLoginFailedErrorMsg,"Failed-act & exp error msg mismatch");
+    }
+
 
 }
