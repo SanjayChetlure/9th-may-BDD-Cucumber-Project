@@ -4,6 +4,7 @@ import LibraryFiles.DriverFactory;
 import LibraryFiles.UtilityClass;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.BeforeStep;
 
 import java.io.IOException;
 
@@ -22,5 +23,11 @@ public class SwagLabHooks
     {
         DriverFactory.driver.quit();
     }
+
+//    @BeforeStep
+//    public void beforeStep() throws IOException, InterruptedException
+//    {
+//        Thread.sleep(1000);
+//    }
 
 }

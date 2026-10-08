@@ -74,5 +74,25 @@ public class SwagLabLoginSteps
        Assert.assertEquals(actLoginFailedErrorMsg,expLoginFailedErrorMsg,"Failed-act & exp error msg mismatch");
     }
 
+    @When("wait for {int} sec")
+    public void wait_for_sec(Integer timeInSec) throws InterruptedException
+    {
+        Thread.sleep(timeInSec*1000);
+    }
+
+
+    @When("user click on addToCart button")
+    public void user_click_on_add_to_cart_button()
+    {
+        home.clickOnAddToCartBtn();
+    }
+    @Then("verify remove button is visible")
+    public void verify_remove_button_is_visible()
+    {
+        boolean actResult = home.checkRemoveAddToCartElementPresentOrNot();
+        Assert.assertTrue(actResult,"Failed-actResult is false");
+    }
+
+
 
 }

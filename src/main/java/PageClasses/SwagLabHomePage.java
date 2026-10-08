@@ -1,6 +1,7 @@
 package PageClasses;
 //POM class 2
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,6 +11,8 @@ public class SwagLabHomePage
 {
     //1: Declaration
    @FindBy(xpath = "//div[@class='app_logo']") private WebElement logoText;
+   @FindBy(xpath = "(//button[text()='Add to cart'])[1]") private WebElement addToCart;
+   @FindBy(xpath = "//button[text()='Remove']") private WebElement removeAddToCart;
 
    //2:initialization
     public SwagLabHomePage(WebDriver driver)
@@ -21,6 +24,25 @@ public class SwagLabHomePage
     {
         String actLogoText = logoText.getText();
         return actLogoText;
+    }
+
+    public void clickOnAddToCartBtn()
+    {
+        addToCart.click();
+    }
+
+    public boolean checkRemoveAddToCartElementPresentOrNot()
+    {
+        boolean removeElementFound=false;
+        try
+        {
+            removeElementFound=removeAddToCart.isDisplayed();
+        }
+        catch (NoSuchElementException e)
+        {
+            System.out.println("Exception handled");
+        }
+        return removeElementFound;
     }
 
 }
