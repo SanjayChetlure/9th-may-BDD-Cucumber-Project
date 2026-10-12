@@ -29,3 +29,7 @@ Feature: Swaglab product feature
   Scenario: TC6- verify Specific Product Name visible
     Then verify total product price should be 129.94
 
+  @product_verifyTotalProductSize
+  Scenario: TC7- verify total product size
+    Then verify total product size should be 6
+

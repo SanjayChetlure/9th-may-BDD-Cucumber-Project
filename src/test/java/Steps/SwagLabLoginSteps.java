@@ -93,6 +93,13 @@ public class SwagLabLoginSteps
         Assert.assertTrue(actResult,"Failed-actResult is false");
     }
 
+    @Then("verify total product size should be {int}")
+    public void verify_total_product_size_should_be(Integer expTotalProductSize)
+    {
+        int actProductSize = home.getTotalProductSize();
+        Assert.assertEquals(actProductSize,expTotalProductSize,"Failed- Act & Exp Product Size mismatch");
+    }
+
 
 
 }
