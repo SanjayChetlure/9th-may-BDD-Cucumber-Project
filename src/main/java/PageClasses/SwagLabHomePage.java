@@ -19,7 +19,7 @@ public class SwagLabHomePage
    @FindBy(xpath = "(//div[@class='inventory_item_price'])[1]") private WebElement SauceLabsBackpackProductPrice;
    @FindBy(xpath = "//div[@class='inventory_item_price']") private List<WebElement> allProductTotalPrice;
    @FindBy(xpath = "//div[@class='inventory_item_name ']") private List<WebElement> allProductAddress;
-
+   @FindBy(xpath = "//div[@id='shopping_cart_container']") private WebElement cartLink;
 
     //2:initialization
     public SwagLabHomePage(WebDriver driver)
@@ -86,6 +86,11 @@ public class SwagLabHomePage
     {
         int actTotalProductSize = allProductAddress.size();
         return actTotalProductSize;
+    }
+
+    public void clickOnCartLink()
+    {
+        cartLink.click();
     }
 
 }

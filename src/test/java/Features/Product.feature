@@ -1,6 +1,6 @@
 @product
 Feature: Swaglab product feature
-  Background:
+  Background: login to Swaglab app
     Given user open SwagLab Application with url "URL"
     When user enter UN as "#UN"
     And wait for 1 sec
@@ -32,4 +32,50 @@ Feature: Swaglab product feature
   @product_verifyTotalProductSize
   Scenario: TC7- verify total product size
     Then verify total product size should be 6
+
+  @product_E2E
+  Scenario: TC8 - E2E Scenario
+    When user click on addToCart button
+    And wait for 1 sec
+    And user click on cart link
+    And wait for 1 sec
+    And user click checkout button
+    And wait for 1 sec
+    And user enter FN as "abc"
+    And user enter LN as "xyz"
+    And user enter postal code as "1234"
+    And wait for 2 sec
+    And user click on continue button
+    And wait for 2 sec
+    And user click on finish button
+    And wait for 3 sec
+    Then verify order placed message "Thank you for your order!" is visible
+
+
+  @product_E2E_usingScenarioOutline
+  Scenario Outline: TC8 - E2E Scenario using scenario outline
+    When user click on addToCart button
+    And wait for 1 sec
+    And user click on cart link
+    And wait for 1 sec
+    And user click checkout button
+    And wait for 1 sec
+    And user enter FN as "<FN>"
+    And user enter LN as "<LN>"
+    And user enter postal code as "<PC>"
+    And wait for 2 sec
+    And user click on continue button
+    And wait for 2 sec
+    And user click on finish button
+    And wait for 3 sec
+    Then verify order placed message "<expMessage>" is visible
+    Examples:
+    |FN    | LN   |PC    |expMessage                |
+    | abc1 | xyz1 | 1111 |Thank you for your order! |
+    | abc2 | xyz2 | 2222 |Thank you for your order! |
+    | abc3 | xyz3 | 3333 |Thank you for your order! |
+
+
+
+
 
