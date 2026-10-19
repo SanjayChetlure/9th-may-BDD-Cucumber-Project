@@ -49,7 +49,7 @@ Feature: Swaglab product feature
     And wait for 2 sec
     And user click on finish button
     And wait for 3 sec
-    Then verify order placed message "Thank you for your order!" is visible
+    Then verify order placed message "Thank you for your order!2" is visible
 
 
   @product_E2E_usingScenarioOutline

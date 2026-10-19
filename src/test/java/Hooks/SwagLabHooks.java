@@ -5,6 +5,7 @@ import LibraryFiles.UtilityClass;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeStep;
+import io.cucumber.java.Scenario;
 
 import java.io.IOException;
 
@@ -19,8 +20,12 @@ public class SwagLabHooks
     }
 
     @After
-    public void closeBrowser()
+    public void closeBrowser(Scenario scenario) throws IOException
     {
+        if (scenario.isFailed())         //check status of last executed scenario, is status if failed , then it capture ss of webpage
+        {
+            UtilityClass.captureSS(scenario.getName());     //execute code to capture SS
+        }
         DriverFactory.driver.quit();
     }
 

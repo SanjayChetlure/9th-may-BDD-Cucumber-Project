@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
         glue = {"Steps","Hooks"},
         publish = true,
         plugin = {"pretty","html:Reports/SwagLabProduct.html"},
-        tags = "@product_E2E_usingScenarioOutline"
+        tags = "@product_verifySpecificProductName"
 )
 public class SwagLabsRunner extends AbstractTestNGCucumberTests
 {
